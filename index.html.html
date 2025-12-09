@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapiopraxis - Global SAP Consulting & Digital Transformation</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* --- CSS Variables for Easy Customization --- */
+        :root {
+            --primary-color: #004080;   /* Deep SAP Blue */
+            --secondary-color: #ff9900; /* Action Orange/Gold */
+            --dark-text: #1a1a1a;
+            --light-bg: #f7f9fc;
+            --white: #ffffff;
+            --font-family: 'Poppins', sans-serif;
+            --icon-size: 2em;
+        }
+
+        /* --- Global Reset and Typography --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5em;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            padding-bottom: 0.5em;
+            margin-bottom: 1.5em;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 0.2em auto 0;
+        }
+        
+        /* Links within content sections */
+        section a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        section a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--dark-text);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- Hero Section (Showcase) --- */
+        #hero {
+            /* IMPORTANT: REPLACE THIS URL with a high-resolution tech image! */
+            background: linear-gradient(rgba(0, 64, 128, 0.8), rgba(0, 64, 128, 0.6)), url('images/hero-bg.jpg') center center/cover;
+            min-height: 500px;
+            color: var(--white);
+            text-align: center;
+            padding: 120px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #hero h1 {
+            font-size: 3.8em;
+            margin-bottom: 20px;
+            color: var(--white);
+            line-height: 1.1;
+        }
+
+        #hero p {
+            font-size: 1.4em;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px; /* Pill shape */
+            font-weight: 700;
+            transition: background 0.3s, transform 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background: #ffb74d; 
+            transform: scale(1.05);
+        }
+
+        /* --- General Section Styling --- */
+        section {
+            padding: 80px 0;
+        }
+        
+        /* --- About Us specific styles (to fit new content structure) --- */
+        #about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .about-text {
+            flex: 2;
+        }
+        .about-image {
+            flex: 1;
+            max-width: 400px;
+        }
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .about-stats {
+            margin-top: 20px;
+            padding: 20px;
+            background: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 4px;
+        }
+        .about-stats p {
+            margin: 5px 0;
+            font-weight: 600;
+        }
+        
+        /* --- Services Grid (Icons added) --- */
+        #services {
+            background: var(--light-bg);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .service-card .icon {
+            font-size: var(--icon-size);
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        
+        /* --- Testimonials --- */
+        #testimonials {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        #testimonials h2 {
+            color: var(--white);
+        }
+        
+        .testimonial-slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .testimonial-item {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quote {
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 15px;
+        }
+
+        .client-name {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-top: 10px;
+            display: block;
+        }
+        
+        /* --- Contact --- */
+        #contact .contact-details {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            padding: 40px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .detail-item strong {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .detail-item a {
+            color: var(--dark-text); 
+            text-decoration: none;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* --- Hide Number Visually (Advanced requirement) --- */
+        .hidden-number {
+            /* Visually hide the text "8174025380" but keep the 'tel:' link active */
+            display: inline-block;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+        }
+        /* Display a friendly CTA instead of the number */
+        .call-cta::before {
+            content: "Click to Call";
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--dark-text);
+            color: #ccc;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        /* --- Media Queries for responsiveness --- */
+        @media (max-width: 992px) {
+            #about-content {
+                flex-direction: column;
+            }
+            .about-image {
+                order: -1; /* Move image above text on small screens */
+            }
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+            .nav-links {
+                padding-top: 15px;
+            }
+            .nav-links a {
+                margin: 0 10px;
+                display: inline-block;
+            }
+            #hero h1 {
+                font-size: 2.2em;
+            }
+            .contact-details {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">Sapiopraxis</a>
+            <nav class="nav-links">
+                <a href="#about">About Us</a>
+                <a href="#services">Our Services</a>
+                <a href="#testimonials">Testimonies</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div>
+                    <h1>SAP & Digital Transformation <br> Made Simple</h1>
+                    <p>Sapiopraxis delivers strategic SAP implementation, robust support, and specialized training to drive measurable business outcomes for our global clients.</p>
+                    <a href="#contact" class="cta-button">Engage Our Experts</a>
+                </div>
+            </div>
+            
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>Who is Sapiopraxis?</h2>
+                <div id="about-content">
+                    <div class="about-text">
+                        <p><strong>Sapiopraxis</strong> is a dynamic IT consulting firm founded with the vision to drive excellence in the **SAP ecosystem**.</p>
+                        <p>Since our incorporation in **2025**, we have dedicated ourselves to offering comprehensive SAP solutions, encompassing full-scale **implementation, expert ongoing support, and high-quality training** for both individuals and corporate employees.</p>
+                        
+                        <p>We don't just deal with standard SAP; we specialize in advanced domains including **S/4HANA migration, intelligent automation, and cloud integration**. Our mission is to empower organizations to leverage these sophisticated technologies for maximum efficiency and competitive advantage.</p>
+
+                        <div class="about-stats">
+                            <p><strong>Incorporated:</strong> 2025</p>
+                            <p><strong>Core Focus:</strong> SAP Solutions (S/4HANA, FI/CO, MM, SD, HCM, ABAP)</p>
+                            <p><strong>Our Commitment:</strong> Excellence in Consulting and Education</p>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="images/consulting-strategy.jpg" alt="Consulting Strategy Diagram">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2>Integrated SAP Solutions</h2>
+                <div class="services-grid">
+                    
+                    <div class="service-card">
+                        <i class="icon fas fa-graduation-cap"></i>
+                        <h3>Corporate & Individual Training</h3>
+                        <p>Specialized, intensive training on all major SAP modules designed to bridge the gap between theory and real-world application, ensuring career readiness.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="icon fas fa-code-branch"></i>
+                        <h3>SAP Implementation Lifecycle</h3>
+                        <p>Full-scale project management from blueprinting to go-live. We utilize best practices to ensure smooth, efficient, and cost-effective system deployments.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="icon fas fa-headset"></i>
+                        <h3>Optimization & Support (AMS)</h3>
+                        <p>Reliable post-implementation Application Management Services (AMS), continuous system monitoring, and performance tuning for maximum uptime and efficiency.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <i class="icon fas fa-cogs"></i>
+                        <h3>S/4HANA Migration</h3>
+                        <p>Expert guidance and execution for transitioning from legacy ECC systems to the intelligent, cloud-ready S/4HANA suite, unlocking next-generation business capabilities.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <div class="container">
+                <h2>What Our Partners Say</h2>
+                <div class="testimonial-slider">
+                    
+                    <div class="testimonial-item">
+                        <p class="quote">"Sapiopraxis provided the most thorough and practical SAP SD training our team has ever received. The knowledge transfer was immediate, impacting our operational efficiency by 20%."</p>
+                        <span class="client-name">- V. Sharma, IT Director, TechCorp Solutions</span>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <p class="quote">"Their consulting team guided our complex global implementation seamlessly. Professional, knowledgeable, and genuinely committed to our success."</p>
+                        <span class="client-name">- J. Koul, COO, Apex Logistics Group</span>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <p class="quote">"I transformed my career thanks to their personalized mentorship program on SAP MM. The job support was invaluable."</p>
+                        <span class="client-name">- Rina D., Independent SAP Consultant</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Connect with Sapiopraxis</h2>
+                <div class="contact-details">
+                    <div class="detail-item">
+                        <strong><i class="fas fa-envelope"></i> Email Us</strong>
+                        <p><a href="mailto:connect@sapiopraxis.com">connect@sapiopraxis.com</a></p>
+                    </div>
+                    <div class="detail-item">
+                        <strong><i class="fas fa-phone"></i> Call Us Directly</strong>
+                        <p>
+                            <a href="tel:8174025380" class="call-cta">
+                                <span class="hidden-number">8174025380</span> 
+                            </a>
+                        </p>
+                    </div>
+                    <div class="detail-item">
+                        <strong><i class="fas fa-map-marker-alt"></i> Our Location</strong>
+                        <p>[City, Country - Global Headquarters]</p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 30px; font-style: italic;">(A contact form would be placed here, requiring server-side scripting.)</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sapiopraxis. All rights reserved. | Driving SAP Excellence.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
